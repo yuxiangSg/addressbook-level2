@@ -2,6 +2,9 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
@@ -11,8 +14,17 @@ public class Address {
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
+    public static final Pattern ADDRESS_FORMAT =
+            Pattern.compile("(?<block>[^/]+)"
+                    + ", (?<street>[^/]+)"
+                    + ", (?<unit>[^/]+)");
+
 
     public final String value;
+    public final Block myBlock;
+    public final Street myStreet;
+    public final Unit myUnit;
+
     private boolean isPrivate;
 
     /**
@@ -22,11 +34,21 @@ public class Address {
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
         String trimmedAddress = address.trim();
+
         this.isPrivate = isPrivate;
         if (!isValidAddress(trimmedAddress)) {
-            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
+           throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
-        this.value = trimmedAddress;
+
+        Matcher matcher = ADDRESS_FORMAT.matcher(trimmedAddress);
+        matcher.matches();
+
+        myBlock = new Block(matcher.group("block"));
+        myStreet = new Street(matcher.group("street"));
+        myUnit = new Unit(matcher.group("unit"));
+
+        value = trimmedAddress;
+
     }
 
     /**
@@ -50,10 +72,79 @@ public class Address {
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return this.toString().hashCode();
     }
 
     public boolean isPrivate() {
         return isPrivate;
     }
 }
+
+/**
+ * Represents a Person's block in his address
+ */
+class Block{
+
+    private String value;
+
+    public Block (String blockName){
+        value = blockName;
+    }
+
+    public String getBlock(){
+        return value;
+    }
+
+
+}
+
+/**
+ * Represents a Person's street in his address
+ */
+class Street{
+    private String value;
+
+    public Street (String streetName){
+        value = streetName;
+    }
+
+    public String getStreet(){
+        return value;
+    }
+
+}
+
+/**
+ * Represents a Person's unit in his address
+ */
+class Unit{
+    private String value;
+
+    public Unit (String unitName){
+        value = unitName;
+    }
+
+    public String getUnit(){
+        return value;
+    }
+
+}
+
+/**
+ * Represents a Person's Postal Code in his address
+ */
+class PostalCode{
+
+    private String value;
+
+    public PostalCode (String postalCodeName){
+        value = postalCodeName;
+    }
+
+    public String getPostalCode(){
+        return value;
+    }
+
+}
+
+

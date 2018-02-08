@@ -112,6 +112,7 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareAdd(String args) {
+
         final Matcher matcher = PERSON_DATA_ARGS_FORMAT.matcher(args.trim());
         // Validate arg string format
         if (!matcher.matches()) {
