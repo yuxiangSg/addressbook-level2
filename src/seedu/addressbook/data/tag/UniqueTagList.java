@@ -81,6 +81,20 @@ public class UniqueTagList implements Iterable<Tag> {
     }
 
     /**
+     * Returns true if the list contains an Tag with tagName same as the given argument.
+     */
+    public boolean contains(String toCheck) {
+        boolean result = false;
+        for(Tag tag : internalList){
+            if(tag.tagName.equals(toCheck)){
+                result=true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
      * Returns true if the list contains an equivalent Tag as the given argument.
      */
     public boolean contains(Tag toCheck) {
