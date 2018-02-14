@@ -53,6 +53,10 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
+### Listing all persons with friend as tag : `listFriend`
+Shows a list of all persons with friend as tag in the address book.<br>
+Format: `listFriend`
+
 ### Finding all persons containing any keyword in their name: `find`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
