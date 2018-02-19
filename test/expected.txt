@@ -14,9 +14,9 @@
 || Example: delete 1
 || Clears address book permanently.
 || Example: clear
-|| find: Finds all persons whose names contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
+|| find: Finds all persons whose names or tags contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
 || Parameters: KEYWORD [MORE_KEYWORDS]...
-|| Example: find alice bob charlie
+|| Example: find alice bob charlie friend
 || list: Displays all persons in the address book as a list with index numbers.
 || Example: list
 || listFriend: Displays all persons in the address book with Tag<friend> as a list with index numbers.
@@ -220,9 +220,9 @@
 || ===================================================
 || Enter command: || [Command entered:  find]
 || Invalid command format! 
-|| find: Finds all persons whose names contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
+|| find: Finds all persons whose names or tags contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
 || Parameters: KEYWORD [MORE_KEYWORDS]...
-|| Example: find alice bob charlie
+|| Example: find alice bob charlie friend
 || ===================================================
 || Enter command: || [Command entered:  find bet]
 || 
@@ -253,6 +253,12 @@
 || 
 || 2 persons listed!
 || ===================================================
+|| Enter command: || [Command entered:  find friend]
+|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friend]
+|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friend]
+|| 
+|| 2 persons listed!
+|| ===================================================
 || Enter command: || [Command entered:  delete]
 || Invalid command format! 
 || delete: Deletes the person identified by the index number used in the last person listing.
@@ -272,7 +278,7 @@
 || The person index provided is invalid
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
-|| Deleted Person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friend]
+|| Deleted Person: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street Tags: [friend]
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
 || Person could not be found in address book
@@ -286,7 +292,7 @@
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
 || 	2. Betsy Choo Tags: [secretive]
-|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friend]
+|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friend]
 || 	4. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Tags: [tubers][starchy]
 || 
 || 4 persons listed!
@@ -297,7 +303,7 @@
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
 || 	2. Betsy Choo Tags: [secretive]
-|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friend]
+|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friend]
 || 
 || 3 persons listed!
 || ===================================================
@@ -306,7 +312,7 @@
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friend]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friend]
 || 
 || 2 persons listed!
 || ===================================================

@@ -27,6 +27,7 @@ What's different from AddressBook-Level1:
 * Support for storing address (`a/`) and tags (`t/`)
 * Support for marking a contact detail as 'private' (`pa/`) (`pe/`) (`pp/`) 
 * View details of a person (`view` : shows non-private details), (`viewall` : shows all details)
+* find support finding matching tags on top of names
 
 ### Viewing help : `help`
 Format: `help`
@@ -57,11 +58,11 @@ Format: `list`
 Shows a list of all persons with friend as tag in the address book.<br>
 Format: `listFriend`
 
-### Finding all persons containing any keyword in their name: `find`
-Finds persons whose names contain any of the given keywords.<br>
+### Finding all persons containing any keyword in their name and tags: `find`
+Finds persons whose names or tags contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-> The search is case sensitive, the order of the keywords does not matter, only the name is searched, 
+> The search is case sensitive, the order of the keywords does not matter, only the name and the tags is searched,
 and persons matching at least one keyword will be returned (i.e. `OR` search).
 
 Examples: 
@@ -69,6 +70,8 @@ Examples:
   Returns `John Doe` but not `john`
 * `find Betsy Tim John`<br>
   Returns Any person having names `Betsy`, `Tim`, or `John`
+*`find friend`<br>
+  Returns Any person with tags recorded as `friend`
 
 ### Deleting a person : `delete`
 Deletes the specified person from the address book. Irreversible.<br>
