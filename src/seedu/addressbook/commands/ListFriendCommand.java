@@ -1,11 +1,10 @@
 package seedu.addressbook.commands;
 
-import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.ReadOnlyPerson;
-import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListFriendCommand extends Command {
     public static final String COMMAND_WORD = "listFriend";

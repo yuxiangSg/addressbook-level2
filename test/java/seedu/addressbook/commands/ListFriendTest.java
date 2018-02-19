@@ -12,12 +12,12 @@ import static org.junit.Assert.assertEquals;
 
 public class ListFriendTest {
     private final AddressBook addressBook = new TypicalPersons().getTypicalAddressBook();
-    private final TypicalPersons td = new TypicalPersons();
+    private final TypicalPersons testCasePersons = new TypicalPersons();
 
     @Test
-    public void execute() throws IllegalValueException {
+    public void execute(){
         //tag friend present: matched
-        assertListFriendCommandBehavior(Arrays.asList(td.amy));
+        assertListFriendCommandBehavior(Arrays.asList(testCasePersons.amy));
     }
 
     /**
